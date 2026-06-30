@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Color tokens ---- */
+  --color-bg: #f6f7fb;
+  --color-surface: #ffffff;
+  --color-sidebar: #11131a;
+  --color-sidebar-soft: #1b1e29;
+  --color-ink: #12131a;
+  --color-ink-soft: #5a5e6e;
+  --color-ink-faint: #9296a6;
+  --color-line: #e8eaf1;
+
+  --color-volt: #c8ff4d;
+  --color-volt-ink: #1c2400;
+  --color-violet: #6d5bff;
+  --color-violet-soft: #efedff;
+  --color-success: #1fae6b;
+  --color-success-soft: #e7f8ef;
+  --color-warning: #f5a524;
+  --color-warning-soft: #fef3e2;
+  --color-danger: #f0473e;
+  --color-danger-soft: #fdeaea;
+
+  /* ---- Type tokens ---- */
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- Radius ---- */
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background-color: var(--color-volt);
+    color: var(--color-volt-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-violet);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-line);
+    border-radius: 999px;
+  }
+  .stat-figure {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
